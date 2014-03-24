@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.zeecrosoft</groupId>
+    <artifactId>MyFinanzasMQ</artifactId>
+    <version>0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>core</module>
+        <module>presentacion</module>
+        <module>negocio</module>
+    </modules>
+    
+    <organization>
+        <name>ZeeCrosof.org</name>
+        <url>http://www.zeecorsoft.com.co</url>
+    </organization>
+    
+    <!--
+       CONEXION MAVEN - GIT DECLARAMOS EL REPOSITORIO DE CODIGO
+    -->
+    <scm>
+        <connection>scm:git:ssh://github.com/zeecrosoft/finanzasMQ.git</connection>
+        <developerConnection>scm:git:ssh://github.com/zeecrosoft/finanzasMQ.git</developerConnection>
+        <url>https://github.com/zeecrosoft/finanzasMQ</url>
+    </scm>
+    
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    
+      <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <preparationGoals>clean install</preparationGoals>
+                    <username>msuevis</username>
+                    <password>java4ever.1</password>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <releaseProfiles>releases</releaseProfiles>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.scm</groupId>
+                        <artifactId>maven-scm-provider-jgit</artifactId>
+                        <version>1.9</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-plugin</artifactId>
+                <version>1.9</version>
+                <configuration>
+                    <providerImplementations>
+                        <git>jgit</git>
+                    </providerImplementations>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.scm</groupId>
+                        <artifactId>maven-scm-provider-jgit</artifactId>
+                        <version>1.9</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+           <!-- DECLARAMOS LOS REPOSITORIOS DE DISTRIBUCCION -->
+    <distributionManagement>
+        <repository>
+            <id>releaseFinanzasMq</id>
+            <url>http://localhost:9091/repository/releaseFinanzasMq</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshot_finanzasMq</id> 
+            <url>http://localhost:9091/repository/snapshot_finanzasMq/</url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>
