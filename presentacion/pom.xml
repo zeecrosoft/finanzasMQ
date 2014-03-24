@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.zeecrosoft</groupId>
         <artifactId>MyFinanzasMQ</artifactId>
-        <version>0.0-SNAPSHOT</version>
+        <version>0.0</version>
     </parent>
     <groupId>com.zeecrosoft.MyFinanzasMQ</groupId>
     <artifactId>presentacion</artifactId>
